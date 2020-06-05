@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<title>课程中心</title>
+<title>login</title>
 <link href="css/main.css" rel="stylesheet" type="text/css" />
 <link href="css/hedBtm.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="css/swiper.min.css">
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css" />
-<script src="https://code.jquery.com/jquery-1.2.3.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="js/dh2.js"></script>
 <script type="text/javascript" src="js/modh.js"></script>
 <style>
@@ -16,7 +16,7 @@ body {
 	font:Arial, Helvetica, sans-serif;
     font-size:16px;
 	color:#000;
-	 background-image: linear-gradient(to right, #82c0ef, #9283bf);
+	    background-image: linear-gradient(to right, #5aa5d1, #2f688a);
 	text-align:center;
 }
 </style>
@@ -38,30 +38,25 @@ body {
              <div class="login-header">
                     用户登录
               </div>
-                <!--提示框 -->
-                  <div id="prompt">
-                  <a>请输入验证码</a>
-                  </div>
+               
                 <!--登陆表单制作-->
                      <div class="login-body">
-                       <form class="form-login" action="" method="post" id="loginFrom" >
+                       <form class="form-login" action="index.html" method="get" id="loginFrom" name="form1" onSubmit="return beforeSubmit(this);">
+                       <div class="passwordWap">
                            <div class="form-group">
-                                   <input type="text" name="login" id="login" placeholder="请输入用户名" class="input-user" />
-                                   <label class="icon-user" for="login"></label>
+                                   <input type="text" name="login" id="login" placeholder="请输入用户名" class="input-user"  required />
+                                   <label class="icon-user" for="login"></label></div>
+                                   <p id="loginWapText">长度1~12个字符</p>
                          </div>
+                         <div class="passwordWap">
                                <div class="form-group">
-                                   <input type="password" name="password" id="password" placeholder="请输入密码" class="input-password" />
+                                  <input type="password" name="password" id="password" placeholder="请输入密码" class="input-password"required />
                                    <label class="icon-envelope" for="password"></label>
+                                   </div>
+                                   <p id="passwordWapText">密码大于6位数</p>
                          </div>
-                                
-                                <div class="form-group">
-                                   <input type="text" name="scode" id="scode" placeholder="请输入验证码" class="input-scode" />
-                                    <span><a href="#"><img src="images/scode.png" title="换一张"  id="scode_img" name="scode_img" class="input_sod_img" /></a></span>
-                                   
-                               </div>
-                               
                                      <div class="form-group">
-                                         <input type="submit" name="submit" id="submit" class="input-sbt" value="登录" onmousemove="display()"  />
+                                         <input type="submit" name="submit" id="submit" class="input-sbt" value="登录"   />
                          </div>
                        </form>
                       </div>
@@ -71,8 +66,8 @@ body {
 
               <div class="guild ">
                  <p>温馨提示：<br />
-                     1：如您是第一次访问本网站，请先<a href="#">注册</a></span><br />
-                     2：如您忘记密码请点击<span><a href="find_password.html">找回密码</a></span></p>
+                     1：如您是第一次访问本网站，请先<a href="zc.html">注册</a></span><br />
+                    
                      </div>
                     
 <!--底部 -->
@@ -80,8 +75,8 @@ body {
   <div class="footerBtm container">
     <div class="row">
       <div class="col-md-4 LogoI">
-        <p class="btLogo"><img src="images/logoBtm_27.png" /></p>
-        <p class="fontW"><span style="display:block;">To make a living. To make a life. </span><span>不仅是活着，还有生活！</span></p>
+        <p class="btLogo"><img src="images2/bottomlogo.png" width="88" height="88" /></p>
+        <p class="fontW"><span style="display:block;">Great hope makes great man.</span><span>伟大的思想造就伟大的人！</span></p>
       </div>
       <div class="col-md-4">
       	<div class="ContectL">
@@ -101,12 +96,29 @@ body {
   </div>
   <div class="btmF">Copyright © 1999-2018 All Rights Reserved    <a href="">京公网安备XXXX010XXXXXXX号</a></div>
 </div>
-
- <script>
- function display() {
-	 var ti = document.getElementById("prompt");
-	 ti.style.display="block";
- }
- </script>
+<script type="text/javascript" src="js/jquery-cookie/jquery.cookie.js"></script>
+<script>
+	 function beforeSubmit(form) {
+		if (form.login.value==''){
+			alert('用户名不能为空！');
+			form.login.focus();
+			return false;
+		}
+		if(form.password.value.length<6){
+			alert('密码大于6位数');
+			form.password.focus();
+			return false;
+		}
+		alert("恭喜您登录成功，获得了2个积分！");
+		$.cookie('yssyxt_login_status', '1');
+		var yssyxt_jifen = $.cookie('yssyxt_jifen');
+		if (yssyxt_login_status == null || yssyxt_jifen == '' || typeof(yssyxt_jifen) === 'undefined') {
+			$.cookie('yssyxt_jifen', '2');
+		} else {
+			$.cookie('yssyxt_jifen', '7');
+		}
+		return true;
+	}
+</script>
 </body>
 </html>

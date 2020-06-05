@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>购买</title>
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+<link href="css/hedBtm.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+</head>
+
+<body>
+<script type="text/javascript" src="js/header.js"></script>
+
+<!--购买表单 -->
+<div class="Buywap">
+    <div class="Buy">
+		<div class="purchase-price--rows">
+			<h2 style="margin-bottom:40px;margin-left:70px;">我的账户</h2>
+			<div style="margin-bottom:15px;">
+				<b style="font-size:15px;">当前所拥有积分：</b>
+				<span id="nowJiFen" style="margin-left: 5px;font-size: 18px;font-weight: bold;color: orange;">0</span>
+			</div>
+			<p class="purchase-price--label" style="font-weight:bold;font-size:15px;">请输入购买分额：</p>
+			<input type="text" id="shoppTotal" value="" style="border:1px solid #a09797;border-radius:3px;height:40px;padding:5px;width:100px;margin-left:10px;" placeholder="请输入整数"/>
+			<input type="button" id="submit" value="购买" class="BuyT" onclick="shoppingSubmit()"/>
+		</div>
+    </div>
+</div>
+<!--底部 -->
+<div class="footer">
+  <div class="footerBtm container">
+    <div class="row">
+      <div class="col-md-4 LogoI">
+        <p class="btLogo"><img src="images2/bottomlogo.png" width="88" height="88" /></p>
+        <p class="fontW"><span style="display:block;">Great hope makes great man.</span><span>伟大的思想造就伟大的人！</span></p>
+      </div>
+      <div class="col-md-4">
+      	<div class="ContectL">
+        <p>联系我们</p>
+        <ul>
+        <li>地址：北京市海淀区北京理工大学</li>
+        <li>客服热线：010-87120000</li>
+        <li><a href="mailto:demo@demo.com">客服邮箱：demo@demo.com</a></li>
+        </ul>
+        </div>
+      </div>
+      <div class="col-md-4  ewmI">
+      	<h2>官网公众号</h2>
+        <img src="images/idexEwm_30.jpg">
+      </div>
+    </div>
+  </div>
+  <div class="btmF">Copyright © 1999-2018 All Rights Reserved    <a href="">京公网安备XXXX010XXXXXXX号</a></div>
+</div>
+  <!-- Initialize Swiper -->
+  <script type="text/javascript" src="js/jquery-cookie/jquery.cookie.js"></script>
+  <script>
+	$(function() {
+		// 判断是否登录
+		var yssyxt_login_status = $.cookie('yssyxt_login_status');
+		if (yssyxt_login_status == null || yssyxt_login_status == '' || typeof(yssyxt_login_status) === 'undefined') {
+			$(".header1 .login").show();
+			$(".loginH").hide();
+		} else {
+			$(".header1 .login").hide();
+			$(".loginH").show();
+			var yssyxt_jifen = $.cookie('yssyxt_jifen');
+			$("#Integral").text("积分"+yssyxt_jifen);
+			$("#nowJiFen").text(yssyxt_jifen);
+		}
+		// 退出登录
+		$("#Quit").click(function(){
+			$(".header1 .login").show();
+			$(".loginH").hide();
+			$.cookie('yssyxt_login_status', null);
+			$.cookie('yssyxt_jifen', null);
+			location.reload();
+		})
+	})
+	// 购买提交事件
+    function shoppingSubmit() {
+		var shoppTotal = $("#shoppTotal").val();
+		if (shoppTotal == "") {
+			alert("请输入购买分额！");  
+			return false;
+		}
+		var zzbds = /^\+?[1-9][0-9]*$/;
+		if (!zzbds.test(shoppTotal)) {
+　　　　	alert("只能输入整数！");  
+	　　　　return false;
+	　　}
+		alert("恭喜您购买成功！");  
+		var yssyxt_jifen = $.cookie('yssyxt_jifen');
+		$.cookie('yssyxt_jifen', parseInt(yssyxt_jifen) + parseInt(shoppTotal));
+		$("#Integral").text("积分"+parseInt(yssyxt_jifen) + parseInt(shoppTotal));
+        history.go(-1);
+	}
+  </script>
+</body>
+</html>

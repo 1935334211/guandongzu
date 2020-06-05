@@ -2,10 +2,11 @@
 #warperHed {
 	width:100%;
     height: 90px;
-	    background: #fff;
+	    background: #0c4262;
     position: fixed;
     top: 0;
     z-index: 9;
+	box-shadow: 0px 2px 6px #00000038;
 }
 .header1 {
 	width: 100%;
@@ -22,13 +23,13 @@
     margin: auto;
 }
  .header1 h1 {
-    width: 223px;
-    height: 76px;
+    width: 228px;
+    height: 77px;
     position: relative;
     overflow: hidden;
     -webkit-transition: all .3s ease;
     transition: all .3s ease;
-    top: 8px;
+    top: 4px;
 	 float: left;
 	 margin:0;
 }
@@ -56,7 +57,7 @@ float:right;
     line-height: 90px;
     width: auto;
     position: absolute;
-    left: 66%;
+    left: 59%;
     top: 0px;
     margin-left: -375px;
     -webkit-transition: all .3s ease;
@@ -69,8 +70,14 @@ float:right;
     font-size: 16px;
     -webkit-transition: all 0.3s cubic-bezier(0.86, 0.5, 1, 1);
     transition: all 0.3s cubic-bezier(0.86, 0.5, 1, 1);
-    margin: 0 17px;
+    margin: 0 20px;
 	    position: relative;
+}
+.header1 nav li:hover a {
+color:#82c0ef;
+}
+.navSedBox .navSedTit a {
+	color:#777 !important;
 }
 .hvr-left:before {
     content: "";
@@ -117,7 +124,7 @@ float:right;
     width: 100%;
 }
 .home-dec {
-	color:#333;
+	color:#fff;
 }
 .tit {
     display: block;
@@ -222,18 +229,19 @@ display:block;
 	margin-left: 10px;
 }
 .header1 .login .dl,.login .zc {
-color:#000;
-font-size:20px;
+color:#fff;
+font-size:18px;
 margin-left:20px;
 line-height:90px;
+    display: inline-block;
 }
 .header1 .login .dl {
-	padding-left:30px;
-	background:url(../images/iCON_06.png) no-repeat;
+	padding-left:35px;
+	background:url(../images2/iCON_06.png) no-repeat -1px 28px;
 }
 .header1 .login .zc { 
 padding-left:40px;
-	background:url(../images/iCON_08.png) no-repeat;
+	background:url(../images2/iCON_08.png) no-repeat -1px 28px;
 }
 .header1 .navSed {
 width:100%;
@@ -411,7 +419,7 @@ width:100%;
 /*底部*/
 .footer {
 	width:100%;
-	background:#333;
+	background:#0c4262;
 	    overflow: hidden;
 	}
 .dzblook {
@@ -436,17 +444,20 @@ width:100%;
 .footerBtm .col p span {
 	display:block;
 	}
-.fontW {
+.fontW {	
 margin-top: 20px;
 margin-left: 10px;
 color:#fff;
 font-size:16px;
+    float: left;
+    text-align: left;
 	}	
 	
 .ContectL p,.ContectL li  {
 	color:#aaaaaa;
 	font-size:12px;
 	line-height:26px;
+	    text-align: left;
 }
 .ContectL li a {
 		color:#aaaaaa;
@@ -470,7 +481,7 @@ text-align:center;
 .btmF {
     color: #aaaaaa;
     font-size: 12px;
-    border-top: 1px solid #595959;
+    border-top: 1px solid #5c7a8c;
     line-height: 60px;
     text-align: center;
 	}
@@ -487,8 +498,8 @@ text-align:center;
     z-index: 99;
 }
 .rSt {
-  width:65px;
-  height:auto;
+    width: 52px;
+    height: 52px;
   display:block;
   background:#fff;
   box-shadow:-1px 1px 5px rgba(204, 204, 204, .6);
@@ -496,6 +507,7 @@ text-align:center;
   padding: 5px 0;
   margin-bottom:5px;
   position:relative;
+  border-radius: 50px;
 }
 .rSt p {
   color:#000;
@@ -506,13 +518,14 @@ text-align:center;
   top: 0;
   width: 190px;
   background: #fff;
-  height: 70px;
-  right: -190px;
-  line-height: 70px;
+  height: 50px;
+  right: -195px;
+  line-height: 50px;
   color: #78b9ed;
   box-shadow: 1px 1px 5px rgba(204, 204, 204, .6);
   font-weight: bold;
   transition: all 0.5s ease;
+  border-radius: 15px;
 }
 .contantS .hc {
   height: 67px;
@@ -545,3 +558,24 @@ text-align:center;
 		margin: 0 24px !important;
 	}
 	}
+.loginH {
+    float: left;
+    width: auto;
+    margin-left: 10px;
+}
+.loginH  p {
+	    color: #000;
+    font-size: 18px;
+    margin-left: 20px;
+    line-height: 90px;
+}
+.loginH  p a {
+	color:#82c0ef;
+	margin-left:15px;
+	}
+.loginH #Quit {
+color:#000;
+}
+.loginH {
+	display:none;
+}
