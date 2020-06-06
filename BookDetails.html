@@ -20,11 +20,11 @@
   <div class="container-1200 container">
 	<div class="row">
     	<div class="col-md-8 BookHeight">
-           <embed src="embed/JavaScript高级程序设计（第3版）中文 高清 完整.pdf" type="application/pdf" width="100%" height="100%" internalinstanceid="28"></embed>
+           <embed src="embed/网络技术与应用.pdf" type="application/pdf" width="100%" height="100%" internalinstanceid="28"></embed>
             </video>
         </div>
        <div class="col-md-4">
-       <h1 class="page-tt"><span class="premium-tag-react"></span><span class="title-main">计算机应用.pdf</span></h1>
+       <h1 class="page-tt"><span class="premium-tag-react"></span><span class="title-main">计算机网络应用</span></h1>
       
        <div class="class-content js-term-item js-term-baseinfo class-content--no-des active" data-idx="0" data-termid="102662237">
        
@@ -36,7 +36,8 @@
          </div>
 		  <a id="KcIntegral" style="color:#1166ab;margin-bottom:-15px;">购买所需积分：<span>2</span></a>
          <div class="oper-bar" id="js_btn_bar" auto-test="mod_oper_bar">      
-			<a href="" class="im-btn general-btn-main institution-btn-main btn-default btn-l"><span class="general-btn-tip institution-btn-tip"></span><span class="general-btn-txt institution-btn-txt" onClick="buy()">立即购买</span></a>       
+			<div id="success_msg" style="color: green;font-weight: bold;font-size: 17px;display:none;">购买成功！</div>
+			<a href="" class="im-btn general-btn-main institution-btn-main btn-default btn-l" id="lijiShopp_a"><span class="general-btn-tip institution-btn-tip"></span><span class="general-btn-txt institution-btn-txt" onClick="buy()" id="lijiShopp_span">立即购买</span></a>       
             <!--<a class="btn-outline btn-contact-notel js-contact-btn" style="" data-position="video" onclick="$('#pjConten').focus();">
                 <span class="btn-advice-tel">
                     <i class="item-icon icon-font i-comment js-icon-msg" style=""></i>
@@ -122,7 +123,7 @@
                 <h4 class="agency-tt">
                 <div class="tt-cover-url">
                 <a class="js-agency-cover" href="https://tuling.ke.qq.com" target="_blank">
-                <img src="images2.0/顶部标题.png" alt="永胜学院" width="228" height="77">
+                <img src="images2/顶部标题.jpg" alt="永胜学院" width="228" height="77">
                 </a>
                 </div>
                 </h4>
@@ -247,7 +248,7 @@
 	$(function() {
 		// 判断是否登录
 		var yssyxt_login_status = $.cookie('yssyxt_login_status');
-		if (yssyxt_login_status == null || yssyxt_login_status == '' || typeof(yssyxt_login_status) === 'undefined') {
+		if (yssyxt_login_status != '1') {
 			$(".header1 .login").show();
 			$(".loginH").hide();
 		} else {
@@ -262,7 +263,6 @@
 			$(".loginH").hide();
 			$.cookie('yssyxt_login_status', null);
 			$.cookie('yssyxt_jifen', null);
-			location.reload();
 		})
 	})
     var swiper = new Swiper('.swiper-container', {
@@ -280,7 +280,7 @@
 	// 购买
 	function buy() {
 		var yssyxt_login_status = $.cookie('yssyxt_login_status');
-		if (yssyxt_login_status == null || yssyxt_login_status == '' || typeof(yssyxt_login_status) === 'undefined') {
+		if (yssyxt_login_status != '1') {
 			alert("您还未登录，请先登录！");
 			return false;
 		}
@@ -289,13 +289,21 @@
 			alert("您当前积分不足，请先进行购买！");
 			return false;
 		} else {
-			alert("恭喜您购买成功");
+			// alert("恭喜您购买成功");
+			$("#success_msg").show();
 			$.cookie('yssyxt_jifen', parseInt(yssyxt_jifen) - 2);
 			$("#Integral").text("积分"+parseInt(yssyxt_jifen) - 2);
+			$("#lijiShopp_span").text('已购买');
+			$("#lijiShopp_a").css({'pointer-events':'none','background':'#cac8c8'});
 		}
 	}
 	// 发表评论
 	function comeOut() {
+		var yssyxt_login_status = $.cookie('yssyxt_login_status');
+		if (yssyxt_login_status != '1') {
+			alert("您还未登录，请先登录！");
+			return false;
+		}
 		var grade = $('input[name="grade"]:checked').val();
 		var pjConten = $('#pjConten').val();
 		if (grade == "" || typeof(grade)==="undefined") {

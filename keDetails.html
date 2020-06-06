@@ -20,16 +20,16 @@
   <div class="container-1200 container">
 	<div class="row">
     	<div class="col-md-7">
-            <video controls src="video/生物学1.mp4" width="100%">
+            <video controls src="video/Java程序设计.mp4" width="100%">
             </video>
         </div>
        <div class="col-md-5">
-       <h1 class="page-tt"><span class="premium-tag-react"></span><span class="title-main">JVM虚拟机底层原理分析与性能优化5.27-         助理微信：18932447130</span></h1>
-       <p class="gy"><span>534人 购买</span><span>好评度 -</span></p>
+       <h1 class="page-tt"><span class="premium-tag-react"></span><span class="title-main">Java编程语言高级程序设计</span></h1>
+       <p class="gy"><span>888人 购买</span><span>好评度 -</span></p>
        <div class="class-content js-term-item js-term-baseinfo class-content--no-des active" data-idx="0" data-termid="102662237">
-                <h2 class="hidden-clip">jvm虚拟机5.27</h2>
+                <h2 class="hidden-clip">《Java编程语言高级程序设计》通过实例讲解了如何使用Java语言开发数据库应用程序、多媒体应用程序、网络应用程序等。</h2>
                 <p class="class-date">
-                  上课时间：05月27日 至 25年05月
+                  上课时间：06月02日 至 12月02日
                 </p>
                 <i class=""></i>
          </div>
@@ -122,7 +122,7 @@
                 <h4 class="agency-tt">
                 <div class="tt-cover-url">
                 <a class="js-agency-cover" href="https://tuling.ke.qq.com" target="_blank">
-                <img src="images2.0/顶部标题.png" alt="永胜学院" width="228" height="77">
+                <img src="images2/顶部标题.jpg" alt="永胜学院" width="228" height="77">
                 </a>
                 </div>
                 </h4>
@@ -247,7 +247,7 @@
 	$(function() {
 		// 判断是否登录
 		var yssyxt_login_status = $.cookie('yssyxt_login_status');
-		if (yssyxt_login_status == null || yssyxt_login_status == '' || typeof(yssyxt_login_status) === 'undefined') {
+		if (yssyxt_login_status != '1') {
 			$(".header1 .login").show();
 			$(".loginH").hide();
 		} else {
@@ -262,7 +262,6 @@
 			$(".loginH").hide();
 			$.cookie('yssyxt_login_status', null);
 			$.cookie('yssyxt_jifen', null);
-			location.reload();
 		})
 	})
     var swiper = new Swiper('.swiper-container', {
@@ -280,7 +279,7 @@
 	// 购买
 	function buy() {
 		var yssyxt_login_status = $.cookie('yssyxt_login_status');
-		if (yssyxt_login_status == null || yssyxt_login_status == '' || typeof(yssyxt_login_status) === 'undefined') {
+		if (yssyxt_login_status != '1') {
 			alert("您还未登录，请先登录！");
 			return false;
 		}
@@ -296,6 +295,11 @@
 	}
 	// 发表评论
 	function comeOut() {
+		var yssyxt_login_status = $.cookie('yssyxt_login_status');
+		if (yssyxt_login_status != '1') {
+			alert("您还未登录，请先登录！");
+			return false;
+		}
 		var grade = $('input[name="grade"]:checked').val();
 		var pjConten = $('#pjConten').val();
 		if (grade == "" || typeof(grade)==="undefined") {

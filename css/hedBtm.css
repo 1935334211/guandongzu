@@ -564,7 +564,7 @@ text-align:center;
     margin-left: 10px;
 }
 .loginH  p {
-	    color: #000;
+	    color: white;
     font-size: 18px;
     margin-left: 20px;
     line-height: 90px;
@@ -574,7 +574,7 @@ text-align:center;
 	margin-left:15px;
 	}
 .loginH #Quit {
-color:#000;
+color:white;
 }
 .loginH {
 	display:none;
