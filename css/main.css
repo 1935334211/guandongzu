@@ -89,23 +89,23 @@ transform:none;
 }
 
 .otherSystem a.s1 {
-    background: url("../Images2/i1.png") no-repeat;
+    background: url("../images2/i1.png") no-repeat;
 }
 
 .otherSystem a.s2 {
-    background: url("../Images2/i2.png") no-repeat;
+    background: url("../images2/i2.png") no-repeat;
 }
 
 .otherSystem a.s3 {
-    background: url("../Images2/i3.png") no-repeat;
+    background: url("../images2/i3.png") no-repeat;
 }
 
 .otherSystem a.s4 {
-    background: url("../Images2/i4.jpg") no-repeat;
+    background: url("../images2/i4.jpg") no-repeat;
 }
 
 .otherSystem a.s5 {
-    background: url("../Images2/i5.png") no-repeat;
+    background: url("../images2/i5.png") no-repeat;
 }
 
 .otherSystem a:hover {
